@@ -115,4 +115,5 @@ alias venv='~/projects/keystone/tools/with_venv.sh'
 alias krack='mpg123 -C -@ sat.krack.mp3.m3u'
 alias proj='cd ~/projects'
 alias share='sudo mount -t vboxsf Share /mnt/vbox_share/'
+alias pass='pwqgen'
 echo "Running .bashrc settings"
