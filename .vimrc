@@ -14,6 +14,7 @@ set softtabstop=4 shiftwidth=4 expandtab
 
 " visual
 highlight Normal ctermbg=black
+
 set background=dark
 set cursorline
 set t_Co=256
@@ -23,11 +24,15 @@ syntax on
 filetype on                 " enables filetype detection
 filetype plugin indent on   " enables filetype specific plugins
 
+" autocmd ColorScheme * highlight ExtraWhiteSpace guifg=#c5bf3b
+" highlight ExtraWhiteSpace guifg=#c5bf3b
+" match ExtraWhiteSpace /\s\+\%#\@<!$/
+
 " colorpack
 colorscheme vibrantink
 
 " gundo
-nnoremap <F5> :GundoToggle<CR>
+" nnoremap <F5> :GundoToggle<CR>
 
 " lusty
 set hidden
@@ -40,3 +45,4 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 set list listchars=tab:» ,trail:›,extends:…
+:noremap gr  :tabprev<CR>
