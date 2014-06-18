@@ -16,4 +16,4 @@
   wdiff = diff --word-diff
   logg = log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset'
   logc = log --graph --pretty=format:'%C(yellow)%h%Creset - %s%n  %an %Cgreen(%cr)%C(bold blue)%d%Creset%n'
-  logs = log --stat
+  diffs = diff --stat
