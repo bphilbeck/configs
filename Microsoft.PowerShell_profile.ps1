@@ -25,3 +25,7 @@ function frame { Set-Location $framework }
 function usage { Set-Location $usage }
 function chef { Set-Location $chef }
 function conf { Set-Location $conf }
+function rem($pattern)
+{
+     get-childitem . -include $pattern -recurse | foreach ($_) {remove-item $_.fullname}
+}
