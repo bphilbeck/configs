@@ -29,3 +29,19 @@ function rem($pattern)
 {
      get-childitem . -include $pattern -recurse | foreach ($_) {remove-item $_.fullname}
 }
+
+function touch 
+{
+	set-content -Path ($args[0]) -Value ($null)
+}
+
+function Set-Home
+{
+	$h = "C:\Users\brad.fitzwater\"
+	Remove-Variable -Force HOME
+	Set-Variable HOME $h
+	$provider = get-psprovider filesystem
+	$provider.Home = $h
+}
+
+Set-Home
