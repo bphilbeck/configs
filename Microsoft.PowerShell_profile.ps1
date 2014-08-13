@@ -37,7 +37,7 @@ function touch
 
 function Set-Home
 {
-	$h = "C:\Users\brad.fitzwater\"
+	$h = "C:\Users\james.morgan\"
 	Remove-Variable -Force HOME
 	Set-Variable HOME $h
 	$provider = get-psprovider filesystem
