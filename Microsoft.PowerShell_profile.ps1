@@ -1,3 +1,4 @@
+Write-Host "Running main powershell profile..."
 function Grepout($pattern)
 {
     git checkout $(git branch | grep $pattern).Trim()
@@ -45,3 +46,4 @@ function Set-Home
 }
 
 Set-Home
+Write-Host "Profile complete."
