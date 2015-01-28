@@ -14,6 +14,7 @@ $sa3 = Join-Path $cp2 -childpath "sa3"
 $cp3 = Join-Path $projects -childpath "Apps-Control-Panel"
 $chef = Join-Path $projects -childpath "Apps-Control-Panel-Chef"
 $conf = Join-Path $projects -childpath "configs"
+$cloud = Join-Path $projects -childpath "cloud-offic-consumers"
 
 function proj { Set-Location $projects }
 function cp2 { Set-Location $cp2 }
@@ -26,6 +27,7 @@ function frame { Set-Location $framework }
 function usage { Set-Location $usage }
 function chef { Set-Location $chef }
 function conf { Set-Location $conf }
+function cloud { Set-Location $cloud }
 function rem($pattern)
 {
      get-childitem . -include $pattern -recurse | foreach ($_) {remove-item $_.fullname}
