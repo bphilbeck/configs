@@ -14,7 +14,7 @@ $sa3 = Join-Path $cp2 -childpath "sa3"
 $cp3 = Join-Path $projects -childpath "Apps-Control-Panel"
 $chef = Join-Path $projects -childpath "Apps-Control-Panel-Chef"
 $conf = Join-Path $projects -childpath "configs"
-$cloud = Join-Path $projects -childpath "cloud-offic-consumers"
+$cloud = Join-Path $projects -childpath "cloud-office-consumers"
 
 function proj { Set-Location $projects }
 function cp2 { Set-Location $cp2 }
