@@ -3,11 +3,14 @@ Write-Host "Running main powershell profile..."
 $projects = 'C:\projects'
 $share = 'C:\share'
 $agent = Join-Path $projects -childpath "agent"
-
+$agent = Join-Path $projects -childpath "api"
+$agent = Join-Path $projects -childpath "config"
 
 function proj { Set-Location $projects }
 function agent { Set-Location $agent }
+function api { Set-Location $api }
 function share { Set-Location $share }
+function config { Set-Location $config }
 
 function rem($pattern)
 {
@@ -52,7 +55,7 @@ function Grep-Folder($folder, $pattern)
 # git-cl <LAST_TAG>..<MASTER|NEW_TAG>
 function GitChangeLog($rangeSpecification)
 {
-	git log --merges --grep="pull request" --pretty=format:'%C(yellow)%h%Creset - %s%n  %an %Cgreen(%cr)%C(bold blue)%d%Creset%n' $rangeSpecification
+    git log --merges --grep="pull request" --pretty=format:'%C(yellow)%h%Creset - %C(bold green)%s%n %C(bold green)%b%n %an %Cgreen(%cr)%C(bold blue)%d%Creset%n' $rangeSpecification
 }
 
 Set-Alias git-cl GitChangeLog
@@ -71,9 +74,11 @@ Set-Alias open ii
 Set-Alias git-cl GitChangeLog
 Set-Alias gcf Grep-Current-Folder
 Set-Alias gf Grep-Folder
+Set-Alias venv "./venv/Scripts/activate"
 
 Set-Home
 Setup-PoshGit
+Import-Module PsGet
 
 cd ~
 
