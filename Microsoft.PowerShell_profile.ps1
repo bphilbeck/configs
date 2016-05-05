@@ -3,14 +3,26 @@ Write-Host "Running main powershell profile..."
 $projects = 'C:\projects'
 $share = 'C:\share'
 $agent = Join-Path $projects -childpath "agent"
-$agent = Join-Path $projects -childpath "api"
-$agent = Join-Path $projects -childpath "config"
+$agent_common = Join-Path $projects -childpath "agent-common"
+$agent_info = Join-Path $projects -childpath "agent-infogenesis"
+$agent_diner = Join-Path $projects -childpath "agent-dinerware"
+$agent_maitred = Join-Path $projects -childpath "agent-maitred"
+$agent_template = Join-Path $projects -childpath "agent-template"
+$api = Join-Path $projects -childpath "api"
+$backend_core = Join-Path $projects -childpath "backend-core"
+$config = Join-Path $projects -childpath "configs"
 
 function proj { Set-Location $projects }
 function agent { Set-Location $agent }
+function common { Set-Location $agent_common }
+function info { Set-Location $agent_info }
+function diner { Set-Location $agent_diner }
 function api { Set-Location $api }
 function share { Set-Location $share }
 function config { Set-Location $config }
+function temp { Set-Location $agent_template }
+function maitre { Set-Location $agent_maitred }
+function back { Set-Location $backend_core }
 
 function rem($pattern)
 {
@@ -29,6 +41,69 @@ function Set-Home
 	Set-Variable HOME $h
 	$provider = get-psprovider filesystem
 	$provider.Home = $h
+}
+
+function pull-all($branch)
+{
+    agent
+    git fetch
+    git checkout master
+    git pull origin master
+    
+    common
+    git fetch
+    git checkout master
+    git pull origin master
+    
+    info
+    git fetch
+    git checkout master
+    git pull origin master
+    
+    diner
+    git fetch
+    git checkout master
+    git pull origin master
+    
+    maitre
+    git fetch
+    git checkout master
+    git pull origin master
+    
+    temp
+    git fetch
+    git checkout master
+    git pull origin master
+    
+}
+
+function tag-all($tag)
+{
+    agent
+    git tag $tag
+}
+
+function clean-all()
+{
+    agent
+    git clean -x -f -d
+    
+    common
+    git clean -x -f -d
+    
+    info
+    git clean -x -f -d
+    
+    diner
+    git clean -x -f -d
+    
+    maitre
+    git clean -x -f -d
+    
+    temp
+    git clean -x -f -d
+        
+    agent
 }
 
 # Load posh-git example profile
@@ -74,7 +149,7 @@ Set-Alias open ii
 Set-Alias git-cl GitChangeLog
 Set-Alias gcf Grep-Current-Folder
 Set-Alias gf Grep-Folder
-Set-Alias venv "./venv/Scripts/activate"
+Set-Alias venv "./venv/scripts/activate"
 
 Set-Home
 Setup-PoshGit
