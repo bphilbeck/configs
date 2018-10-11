@@ -22,3 +22,5 @@
 	autocrlf = true
 [merge]
 	tool = tortoisemerge
+[pull]
+	rebase = true	
